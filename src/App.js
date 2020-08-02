@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import axios from "axios";
 import "./App.css";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Products from "./containers/Products";
@@ -14,11 +14,14 @@ import Offer from "./containers/Offer";
 import Search from "./containers/Search";
 // import Footer from "./components/Footer";
 function App() {
-  const [user, setUser] = useState(false);
+  const token = Cookies.get("token");
+  const [user, setUser] = useState(token || null);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [search, setSearch] = useState("");
+  // Regarder s'il y a un token dans le Cookie
+
   return (
     <>
       <Router>
@@ -30,7 +33,7 @@ function App() {
         />
         <Switch>
           <Route path="/products">
-            <Products />
+            <Products user={user} />
           </Route>
           <Route path="/offers">
             <Offers />
@@ -40,6 +43,7 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile
+              user={user}
               username={username}
               setUserName={setUsername}
               email={email}

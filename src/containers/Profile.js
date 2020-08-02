@@ -14,22 +14,33 @@ const Profile = ({
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
-  const fetchData = async () => {
-    try {
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://leboncoin-api-gregory.herokuapp.com/user/${params.id}`
+  //     );
+  //     console.log(response.data);
+  //     setData(response.data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
       const response = await axios.get(
         `https://leboncoin-api-gregory.herokuapp.com/user/${params.id}`
       );
       console.log(response.data);
       setData(response.data);
       setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
+    };
     fetchData();
-  }, []);
+  }, [params.id]);
 
   return isLoading ? (
     <span>En cours de chargement...</span>

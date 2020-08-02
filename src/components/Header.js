@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../assets/css/Header.css";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 const Header = ({ user, setUser, search, setSearch }) => {
   const history = useHistory();
 
@@ -9,7 +9,9 @@ const Header = ({ user, setUser, search, setSearch }) => {
     <>
       <header>
         <div className="nav2">
-          <div className="logo">Le Bon Coin</div>
+          <div className="logo">
+            <Link to="/home">Le Bon Coin</Link>
+          </div>
           <div>
             <input
               type="text"
@@ -24,16 +26,16 @@ const Header = ({ user, setUser, search, setSearch }) => {
               }}
             />
           </div>
-          {user === false ? (
+          {user === null ? (
             <Link to="/login">Login</Link>
           ) : (
             <div
               onClick={() => {
                 // supprimer le cookie
-                // Cookies.remove("token");
+                Cookies.remove("token");
                 // modifier l'état user
-                // setUser(null);
-                setUser(false);
+                setUser(null);
+                // setUser(false);
                 // rediriger l'utilisateur vers login
                 history.push("/login");
               }}
@@ -49,7 +51,7 @@ const Header = ({ user, setUser, search, setSearch }) => {
           <button>
             <Link to="/products">Products</Link>
           </button>
-          {user === false ? (
+          {user === null ? (
             " "
           ) : (
             <button>

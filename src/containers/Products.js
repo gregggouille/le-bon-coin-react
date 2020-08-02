@@ -18,10 +18,7 @@ const Products = ({ annonce, user }) => {
     } catch (error) {
       console.log(error);
     }
-  };
-    
-   
-   */
+  };*/
   return (
     <>
       <div className="publish">

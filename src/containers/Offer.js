@@ -9,18 +9,17 @@ const Offer = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async () => {
-    const response = await axios.get(
-      `https://leboncoin-api-gregory.herokuapp.com/offer/${params.id}`
-    );
-    console.log(response.data);
-    setData(response.data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        `https://leboncoin-api-gregory.herokuapp.com/offer/${params.id}`
+      );
+      console.log(response.data);
+      setData(response.data);
+      setIsLoading(false);
+    };
     fetchData();
-  }, []);
+  }, [params.id]);
 
   return isLoading ? (
     <span>En cours de chargement...</span>
