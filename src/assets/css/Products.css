@@ -1,0 +1,9 @@
+.publish {
+  display: flex;
+  justify-content: flex-start;
+  width: 500;
+}
+.publish div > div button {
+  background-color: blue;
+  color: white;
+}

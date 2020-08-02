@@ -1,0 +1,20 @@
+.login div {
+  margin: 0, auto;
+  width: 60vw;
+  background-color: turquoise;
+  margin: auto;
+}
+.login div > div {
+  margin: auto;
+}
+.login h1 {
+  text-align: center;
+}
+.login button {
+  background-color: blue;
+  color: white;
+  width: 80%;
+}
+.login input {
+  width: 80%;
+}

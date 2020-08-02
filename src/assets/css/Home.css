@@ -1,0 +1,24 @@
+.carousel div {
+  display: flex;
+  background-color: pink;
+
+  justify-content: center;
+  width: 250;
+  margin-left: 50;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.offres {
+  border: 1px solid black;
+}
+.offre div {
+  display: inline;
+}
+.carousel {
+  display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+#map {
+  background-color: royalblue;
+}
