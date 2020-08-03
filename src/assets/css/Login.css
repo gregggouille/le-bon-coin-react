@@ -13,8 +13,8 @@
 .login button {
   background-color: blue;
   color: white;
-  width: 80%;
+  width: 100%;
 }
 .login input {
-  width: 80%;
+  width: 100%;
 }

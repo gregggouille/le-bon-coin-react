@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 import "../assets/css/Products.css";
 import axios from "axios";
 
@@ -37,10 +37,10 @@ const Products = ({ user }) => {
         >
           <h2>Annonce</h2>
           <div>
-            title:
             <input
               type="text"
               value={title}
+              placeholder="title:"
               onChange={(event) => {
                 setTitle(event.target.value);
                 // console.log(title);
@@ -48,9 +48,9 @@ const Products = ({ user }) => {
             />
           </div>
           <div>
-            description:
             <input
               type="text"
+              placeholder=" description:"
               value={description}
               onChange={(event) => {
                 setDescription(event.target.value);
@@ -59,10 +59,10 @@ const Products = ({ user }) => {
             />
           </div>
           <div>
-            price:
             <input
               type="number"
               value={price}
+              placeholder="price:"
               onChange={(event) => {
                 // console.log(email);
                 setPrice(event.target.value);
@@ -84,7 +84,6 @@ const Products = ({ user }) => {
             <button type="submit">Publier</button>
           </div>
         </form>
-        <Link to="/home">home</Link>
       </div>
     </>
   );

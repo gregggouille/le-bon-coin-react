@@ -45,7 +45,7 @@ const Header = ({ user, setUser }) => {
             " "
           ) : (
             <button>
-              <Link to="/products">Products</Link>
+              <Link to="/products">Déposer une annonce</Link>
             </button>
           )}
           {user === null ? (

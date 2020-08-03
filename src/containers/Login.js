@@ -64,7 +64,9 @@ const Login = ({ setUser }) => {
           </div>
         </form>
         <div>
-          <Link to="/signup">Signup</Link>
+          <center>
+            <Link to="/signup">Signup</Link>
+          </center>
         </div>
       </div>
     </>

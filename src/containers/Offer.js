@@ -26,7 +26,7 @@ const Offer = () => {
   ) : (
     <div className="offer">
       <p>{data.title}</p>
-      <img src={data.picture.url} alt="" />
+      <img src={data.picture.secure_url} alt="" />
       {/* <p></p> */}
       <p>{data.description}</p>
 

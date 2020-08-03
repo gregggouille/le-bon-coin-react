@@ -49,7 +49,6 @@ const Signup = () => {
               onSubmit={(event) => {
                 event.preventDefault();
                 fetchData();
-                // console.log(username, email, password);
               }}
             >
               <div>
@@ -69,9 +68,8 @@ const Signup = () => {
                   value={email}
                   placeholder="email"
                   onChange={(event) => {
-                    // console.log(email);
                     setEmail(event.target.value);
-                    console.log(email);
+                    // console.log(email);
                   }}
                 />
               </div>

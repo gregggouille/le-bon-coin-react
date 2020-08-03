@@ -15,7 +15,7 @@ const Home = () => {
 
       setOffre(response.data);
       setIsLoading(false);
-      //   console.log(response.data.offre);
+      console.log(response.data.offre);
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +34,7 @@ const Home = () => {
           return (
             <Link key={offer._id} to={`/offer/${offer._id}`}>
               <div className=" carousel offres">
-                <img src={offer.picture.url} alt={offre.title} />
+                <img src={offer.picture.secure_url} alt={offre.title} />
               </div>
             </Link>
           );

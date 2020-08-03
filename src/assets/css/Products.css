@@ -1,9 +1,17 @@
-.publish {
+.publish div {
   display: flex;
   justify-content: flex-start;
-  width: 500;
+  width: 40vw;
+  margin: auto;
+  background-color: violet;
 }
 .publish div > div button {
   background-color: blue;
   color: white;
+}
+h2 {
+  text-align: center;
+}
+.publish input {
+  width: 100%;
 }
