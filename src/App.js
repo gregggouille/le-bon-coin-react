@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import axios from "axios";
 import "./App.css";
 import Cookies from "js-cookie";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -12,25 +11,19 @@ import Home from "./containers/Home";
 import Offers from "./containers/Offers";
 import Offer from "./containers/Offer";
 import Search from "./containers/Search";
+import Publish from "./containers/Publish";
 // import Footer from "./components/Footer";
 function App() {
-  const token = Cookies.get("token");
-  const [user, setUser] = useState(token || null);
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [search, setSearch] = useState("");
   // Regarder s'il y a un token dans le Cookie
+  const token = Cookies.get("token");
+  // console.log(token);
+  const [user, setUser] = useState(token || null);
+  const [username, setUsername] = useState("");
 
   return (
     <>
       <Router>
-        <Header
-          user={user}
-          setUser={setUser}
-          search={search}
-          setSearch={setSearch}
-        />
+        <Header user={user} setUser={setUser} />
         <Switch>
           <Route path="/products">
             <Products user={user} />
@@ -42,43 +35,23 @@ function App() {
             <Offer />
           </Route>
           <Route path="/profile">
-            <Profile
-              user={user}
-              username={username}
-              setUserName={setUsername}
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-            />
+            <Profile username={username} setUserName={setUsername} />
           </Route>
           <Route path="/products">
             <Products />
-            <Route path="/search">
-              <Search search={search} />
-            </Route>
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/publish">
+            <Publish token={token} user={user} />
           </Route>
           <Route path="/login">
-            <Login
-              setUser={setUser}
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-            />
+            <Login setUser={setUser} user={user} />
           </Route>
 
           <Route path="/signup">
-            <Signup
-              user={user}
-              setUser={setUser}
-              email={email}
-              setEmail={setEmail}
-              username={username}
-              setUsername={setUsername}
-              password={password}
-              setPassword={setPassword}
-            />
+            <Signup username={username} setUsername={setUsername} />
           </Route>
 
           <Route path="/">

@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Profile = ({
-  user,
   username,
   setUsername,
   email,
@@ -14,22 +13,7 @@ const Profile = ({
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `https://leboncoin-api-gregory.herokuapp.com/user/${params.id}`
-  //     );
-  //     console.log(response.data);
-  //     setData(response.data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -41,7 +25,7 @@ const Profile = ({
     };
     fetchData();
   }, [params.id]);
-
+  console.log(data);
   return isLoading ? (
     <span>En cours de chargement...</span>
   ) : (
@@ -58,7 +42,7 @@ const Profile = ({
           <div>
             <input
               type="text"
-              value={data.user}
+              value={username}
               onChange={(event) => {
                 setUsername(event.target.value);
               }}

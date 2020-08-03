@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 // import fr from "../assets/img/fr.svg";
-import Carte from "../components/Carte";
+// import Carte from "../components/Carte";
 // import Products from "./Products";
 const Home = () => {
   const [offre, setOffre] = useState([]);
@@ -33,17 +33,7 @@ const Home = () => {
           // console.log(offer);
           return (
             <Link key={offer._id} to={`/offer/${offer._id}`}>
-              <div
-                className=" carousel offres"
-                // style={
-                //   {
-                //     display: "flex",
-                //     border: "1px solid black",
-                //     width: 250,
-                //     marginLeft: 50,
-                //   }
-                // }
-              >
+              <div className=" carousel offres">
                 <img src={offer.picture.url} alt={offre.title} />
               </div>
             </Link>
@@ -51,7 +41,7 @@ const Home = () => {
         })}
       </div>
       {/* <img src={fr} alt="" /> */}
-      <Carte />
+      {/* <Carte /> */}
     </div>
   );
 };

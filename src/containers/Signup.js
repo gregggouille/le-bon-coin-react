@@ -1,20 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "../assets/css/Signup.css";
 import { Link, useHistory } from "react-router-dom";
-const Signup = ({
-  user,
-  setUser,
-  email,
-  setEmail,
-  username,
-  setUsername,
-  password,
-  setPassword,
-}) => {
-  // const [email, setEmail] = useState("");
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
+const Signup = () => {
+  const [email, setEmail] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  // const [confirmPassword, setConfirmPassword] = useState("");
+
   const history = useHistory();
   const fetchData = async () => {
     try {

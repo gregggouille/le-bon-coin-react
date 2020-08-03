@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../assets/css/Header.css";
 import Cookies from "js-cookie";
-const Header = ({ user, setUser, search, setSearch }) => {
+const Header = ({ user, setUser }) => {
   const history = useHistory();
 
   return (
@@ -14,13 +14,6 @@ const Header = ({ user, setUser, search, setSearch }) => {
           </div>
           <div>
             <input
-              type="text"
-              value={search}
-              placeholder="recherche"
-              onChange={(event) => {
-                setSearch(event.target.value);
-                console.log(search);
-              }}
               onClick={() => {
                 console.log("clicked");
               }}

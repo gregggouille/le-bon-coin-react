@@ -1,53 +1,49 @@
 import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../assets/css/Products.css";
-//https://leboncoin-api-gregory.herokuapp.com/offer/publish
-const Products = ({ annonce, user }) => {
-  const [publish, setPublish] = useState({});
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const { id } = useParams();
-  /*
-     const fetchData = async () => {
-    try {
-      const response = await axios.post(
-        "https://leboncoin-api-gregory.herokuapp.com/offer/publish",
-        { title: title, description: description, price: price,  }
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };*/
+import axios from "axios";
+
+const Products = ({ user }) => {
+  const token = user;
+  console.log(token);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0);
+  const [file, setFile] = useState();
+
+  const formData = new FormData(); // class JavaScript
+  formData.append("title", title);
+  formData.append("description", description);
+  formData.append("price", price);
+  formData.append("picture", file);
+
+  const fetchData = async () => {
+    const response = await axios.post(
+      "https://leboncoin-api-gregory.herokuapp.com/offer/publish",
+      formData,
+      { headers: { authorization: "Bearer " + token } }
+    );
+    console.log(response.data);
+  };
+
   return (
     <>
       <div className="publish">
         <form
           onSubmit={(event) => {
             event.preventDefault();
+            fetchData();
           }}
         >
-          <h2>Products{id}</h2>
-          {/* {console.log({annonce}) */}
-          {/* <div>created{annonce}</div> */}
-          <div>
-            created:
-            <input type="text" />
-          </div>
-
-          <div>
-            id:
-            <input type="text" />
-          </div>
+          <h2>Annonce</h2>
           <div>
             title:
             <input
               type="text"
               value={title}
               onChange={(event) => {
-                // console.log(email);
                 setTitle(event.target.value);
-                console.log(title);
+                // console.log(title);
               }}
             />
           </div>
@@ -57,23 +53,35 @@ const Products = ({ annonce, user }) => {
               type="text"
               value={description}
               onChange={(event) => {
-                // console.log(email);
                 setDescription(event.target.value);
-                console.log(description);
+                // console.log(description);
               }}
             />
           </div>
           <div>
             price:
-            <input type="text" />
+            <input
+              type="number"
+              value={price}
+              onChange={(event) => {
+                // console.log(email);
+                setPrice(event.target.value);
+                // console.log(price);
+              }}
+            />
           </div>
-          <div>picture</div>
           <div>
-            Creator username:
-            <input type="text" />
+            <input
+              // multiple={true}
+              type="file"
+              onChange={(event) => {
+                setFile(event.target.files[0]);
+              }}
+            />
           </div>
+          {/* <div>{token}</div> */}
           <div>
-            <button>Publier</button>
+            <button type="submit">Publier</button>
           </div>
         </form>
         <Link to="/home">home</Link>

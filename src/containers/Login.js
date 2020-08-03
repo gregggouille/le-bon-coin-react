@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "../assets/css/Login.css";
 import Cookies from "js-cookie";
-const Login = ({ setUser, email, setEmail, password, setPassword }) => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+const Login = ({ setUser }) => {
   const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -36,8 +36,6 @@ const Login = ({ setUser, email, setEmail, password, setPassword }) => {
 
   return (
     <>
-      <Link to="/home">Home</Link>
-
       <div className="login">
         <h1>Connexion</h1>
         <form onSubmit={handleSubmit}>
