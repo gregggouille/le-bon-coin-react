@@ -18,7 +18,7 @@ const Login = ({ setUser }) => {
         }
       );
       if (response.data.token) {
-        console.log("login====>" + response.data);
+        // console.log("login====>" + response.data);
         // Sauvegarder le token dans un Cookie
         Cookies.set("token", response.data.token);
         // Remplacer le bouton "se connecter" par "se déconnecter"

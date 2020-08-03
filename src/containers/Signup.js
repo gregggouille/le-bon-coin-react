@@ -49,7 +49,7 @@ const Signup = () => {
               onSubmit={(event) => {
                 event.preventDefault();
                 fetchData();
-                console.log(username, email, password);
+                // console.log(username, email, password);
               }}
             >
               <div>
@@ -90,8 +90,6 @@ const Signup = () => {
               <button
                 type="submit"
                 onClick={() => {
-                  // Requête vers le serveur pour se connecter
-                  // const token = "1234";
                   // Sauvegarder le token dans un Cookie
                   // Cookies.set("token", token);
                   // Remplacer le bouton "se connecter" par "se déconnecter"

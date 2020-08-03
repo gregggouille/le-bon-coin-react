@@ -5,7 +5,7 @@ import axios from "axios";
 
 const Products = ({ user }) => {
   const token = user;
-  console.log(token);
+  // console.log(token);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);

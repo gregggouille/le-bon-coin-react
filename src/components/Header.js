@@ -15,7 +15,7 @@ const Header = ({ user, setUser }) => {
           <div>
             <input
               onClick={() => {
-                console.log("clicked");
+                // console.log("clicked");
               }}
             />
           </div>
@@ -41,9 +41,13 @@ const Header = ({ user, setUser }) => {
           <button>
             <Link to="/offers">Offers</Link>
           </button>
-          <button>
-            <Link to="/products">Products</Link>
-          </button>
+          {user === null ? (
+            " "
+          ) : (
+            <button>
+              <Link to="/products">Products</Link>
+            </button>
+          )}
           {user === null ? (
             " "
           ) : (
